@@ -27,3 +27,16 @@ function hypslideshow_admin_enqueue() {
 		wp_enqueue_script( 'hypss-sortable-js', plugin_dir_url( __FILE__ ) . '../lib/sortable/sortable.js', array( 'jquery' ), '1.0.0', false );
 	}
 }
+
+// Action to load scripts in the site frontend.
+add_action( 'wp_enqueue_scripts', 'hypslideshow_site_enqueue' );
+/**
+ * Define styles and scripts to load in the site frontend
+ */
+function hypslideshow_site_enqueue() {
+	// Enqueue styles.
+	wp_enqueue_style( 'hypss-tinyslide-style', plugin_dir_url( __FILE__ ) . '../lib/tinyslide/tinyslide.css', array(), '1.0.0', 'all' );
+	// Enqueue scripts.
+	wp_enqueue_script( 'hypss-jquery-tinyslide', plugin_dir_url( __FILE__ ) . '../lib/jquery/jquery-1.11.2.min.js', array(), '1.0.0', false );
+	wp_enqueue_script( 'hypss-tinyslide-js', plugin_dir_url( __FILE__ ) . '../lib/tinyslide/tinyslide.js', array( 'jquery' ), '1.0.0', false );
+}
