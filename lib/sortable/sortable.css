@@ -1,0 +1,22 @@
+/* CSS for #sortable customized by Hyppolite */
+#sortable { 
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 450px; 
+}
+#sortable li {
+  margin: 10px 10px 10px 0;
+  padding: 1px;
+  float: left;
+  width: 100px;
+  text-align: center;
+}
+#sortable li > button.button {
+  margin: 0.5em;
+  border-color: #d63638;
+  color: #d63638;
+}
+#sortable li > button.button:focus {
+  box-shadow: 0 0 0 1px darkred;
+}
