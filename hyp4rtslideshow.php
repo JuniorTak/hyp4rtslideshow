@@ -16,6 +16,10 @@
  * Text Domain: hypslideshow
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 require 'inc/hyp4rtss-enqueue.php';
 require 'inc/hyp4rtss-handlers.php';
 require 'inc/hyp4rtss-page.php';
