@@ -1,6 +1,6 @@
-# hyp4rtslideshow
+# Hyp4rtslideshow
 
-This is a GitHub repo for the development of a WordPress slideshow plugin.
+A repo for the development of a WordPress slideshow plugin, based on [rtCamp](https://rtcamp.com/) WordPress-Slideshow Plugin assignment.
 
 ## Usage
 
@@ -17,10 +17,18 @@ http://hyp4rt.infinityfreeapp.com/demo-page/
 
 ## Running Tests
 
-Note: Unit Test cases are still being implemented. A sample test is the only current test case available.
+Before running tests, make sure to properly set up the [WordPress Testing Suite](https://make.wordpress.org/cli/handbook/misc/plugin-unit-tests/#running-tests-locally) which requires [WP-CLI](https://make.wordpress.org/cli/handbook/guides/installing/).
 
-To run it, run the following command
+Then, run the following command to install [Composer](https://getcomposer.org/) dependencies
+
+```bash
+  composer install
+```
+
+To run tests, run the following command
 
 ```bash
   ./vendor/bin/phpunit tests/TestHypSlideshow.php
 ```
+
+If you encounter any issue while setting up PHP Unit Tests, please refer to this [guide on fixing common issues while setting up php unit tests for wordpress plugins](https://sanjeebaryal.com.np/fixing-issues-while-setting-up-php-unit-tests-for-wordpress-plugins/).
