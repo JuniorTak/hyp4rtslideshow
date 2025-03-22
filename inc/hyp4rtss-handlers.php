@@ -19,20 +19,20 @@ function hypss_handle_image_upload() {
 		'hypss_form_nonce_action'
 	) ) {
 		add_settings_error(
-	        'hypss_nonce_error',
-	        esc_attr( 'nonce_not_verified' ),
-	        __( '403 Unauthorized.', 'hypslideshow' ),
-	        'error'
-	    );
+			'hypss_nonce_error',
+			esc_attr( 'nonce_not_verified' ),
+			__( '403 Unauthorized.', 'hypslideshow' ),
+			'error'
+		);
 	} elseif ( isset( $_POST['hypss_image'] ) && ! empty( $_POST['hypss_image'] ) ) {
-		$url = sanitize_text_field( wp_unslash( $_POST['hypss_image'] ) );
+		$url = sanitize_url( wp_unslash( $_POST['hypss_image'] ) );
 		array_push( $urls, $url );
 		add_settings_error(
-	        'hypss_settings_error',
-	        esc_attr( 'settings_saved' ),
-	        __( 'Image added.', 'hypslideshow' ),
-	        'success'
-	    );
+			'hypss_settings_error',
+			esc_attr( 'settings_saved' ),
+			__( 'Image added.', 'hypslideshow' ),
+			'success'
+		);
 	}
 	return $urls;
 }
@@ -46,7 +46,7 @@ function hypss_handle_reorder_images() {
 	// Verify the nonce.
 	check_ajax_referer( 'hypss_ajax_nonce' );
 	if ( isset( $_POST['image_urls'] ) && ! empty( $_POST['image_urls'] ) ) {
-		$image_urls = $_POST['image_urls'];
+		$image_urls = sanitize_option( 'hypss_images', wp_unslash( $_POST['image_urls'] ) );
 		update_option( 'hypss_images', $image_urls );
 		wp_send_json_success();
 	}
@@ -61,8 +61,8 @@ function hypss_handle_remove_image() {
 	// Verify the nonce.
 	check_ajax_referer( 'hypss_ajax_nonce' );
 	if ( isset( $_POST['image_index'] ) ) {
-		$index = wp_unslash( (int) $_POST['image_index'] );
-		$images   = get_option( 'hypss_images' );
+		$index  = (int) $_POST['image_index'];
+		$images = get_option( 'hypss_images' );
 		unset( $images[ $index ] );
 		update_option( 'hypss_images', $images );
 		wp_send_json_success();
