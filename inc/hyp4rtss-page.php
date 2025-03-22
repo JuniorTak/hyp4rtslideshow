@@ -74,6 +74,5 @@ function hypslideshow_content() {
 			<span>No images found</span>
 		<?php endif; ?>
 	</div>
-	<script type="text/javascript" src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../js/hyp4rtss-scripts.js' ); ?> "></script>
 	<?php
 }
