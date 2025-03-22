@@ -15,22 +15,35 @@ function hypslideshow_func() {
 	ob_start();
 
 	$images = get_option( 'hypss_images' ) ?? null;
-	if ( $images ) :
+	if ( $images ) {
 		?>
 		<section id="tiny" class="tinyslide">
 			<aside class="slides">
 			<?php foreach ( $images as $image ) : ?>
-				<figure><img src="<?php echo esc_url( $image ); ?>" alt="slideshow-image" />
+				<figure>
+					<img src="<?php echo esc_url( $image ); ?>" alt="slideshow-image" />
 					<figcaption></figcaption>
 				</figure>
 			<?php endforeach; ?>
 			</aside>
 		</section>
-		<script type="text/javascript">
-			var tiny = jQuery('#tiny').tiny().data('api_tiny');
-		</script>
 		<?php
-	endif;
+		if ( count( $images ) > 1 ) {
+			?>
+			<script type="text/javascript">
+				var tiny = jQuery('#tiny').tiny().data('api_tiny');
+			</script>
+			<?php
+		}
+	} elseif ( count( $images ) === 0 ) {
+		?>
+		<section id="tiny" class="tinyslide">
+			<aside class="slides">
+				<span><?php esc_html_e( 'No images', 'hypslideshow' ); ?></span>
+			</aside>
+		</section>
+		<?php
+	}
 
 	// End the output buffer and assign its content.
 	$output = ob_get_contents();
