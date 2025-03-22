@@ -45,6 +45,7 @@ function hypslideshow_content() {
 		<hr />
 		<h3>Add Image</h3>
 		<form method="post" action="options.php" enctype="multipart/form-data">
+			<?php wp_nonce_field( 'hypss_form_nonce_action', 'hypss_form_nonce_field' ); // Nonce field. ?>
 			<?php settings_fields( 'hypslideshow-settings-group' ); // Display settings fields on the plugin settings page. ?>
 			<input type="text" name="hypss_image" id="hypss_image" required data-readonly style="pointer-events: none;">
 			<input type="button" id="hypss_select_btn" class="button" value="<?php esc_attr_e( 'Select Image' ); ?>">

@@ -38,9 +38,10 @@ function hypss_reorder_images() {
     });
     
     jQuery.ajax({
-        url: ajaxurl,
+        url: hypss_ajax.ajax_url,
         type: 'POST',
         data: {
+            _ajax_nonce: hypss_ajax.nonce,
             action: 'hypss_reorder_images',
             image_urls: imagesArray
         },
@@ -59,9 +60,10 @@ function hypss_remove_image(button, imageIndex) {
     var conf = confirm("You are about to remove image from the slideshow!\n'Cancel' to stop or 'OK' to remove...");
     if (conf){
         jQuery.ajax({
-            url: ajaxurl,
+            url: hypss_ajax.ajax_url,
             type: 'POST',
             data: {
+                _ajax_nonce: hypss_ajax.nonce,
                 action: 'hypss_remove_image',
                 image_index: imageIndex
             },

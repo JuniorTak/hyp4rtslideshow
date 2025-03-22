@@ -26,6 +26,16 @@ function hypslideshow_admin_enqueue() {
 		wp_enqueue_script( 'hypss-jquery-ui-js', plugin_dir_url( __FILE__ ) . '../lib/jquery/1.13.2/jquery-ui.js', array(), '1.0.0', false );
 		wp_enqueue_script( 'hypss-sortable-js', plugin_dir_url( __FILE__ ) . '../lib/sortable/sortable.js', array( 'jquery' ), '1.0.0', false );
 		wp_enqueue_script( 'hypss-js', plugin_dir_url( __FILE__ ) . '../js/hyp4rtss-scripts.js', array( 'jquery' ), '1.0.0', true );
+		// Ajax nonce to the script.
+		$ajax_nonce = wp_create_nonce( 'hypss_ajax_nonce' );
+		wp_localize_script(
+			'hypss-js',
+			'hypss_ajax',
+			array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'nonce'    => $ajax_nonce,
+			)
+		);
 	}
 }
 
