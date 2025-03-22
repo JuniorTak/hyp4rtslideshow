@@ -63,10 +63,10 @@ function hypslideshow_content() {
 				<button class="button" onclick="hypss_reorder_images();">Click to reorder</button>
 			<?php endif; ?>
 			<ul id="sortable">
-			<?php foreach ( $images as $image ) : ?>
+			<?php foreach ( $images as $index => $image ) : ?>
 				<li class="ui-state-default">
 					<img src="<?php echo esc_url( $image ); ?>" alt="slideshow-image" width="100" height="100" />
-					<button class="button" onclick="hypss_remove_image(this, '<?php echo esc_js( $image ); ?>');">Remove</button>
+					<button class="button" onclick="hypss_remove_image(this, '<?php echo (int) $index; ?>');">Remove</button>
 				</li>
 			<?php endforeach; ?>
 			</ul>

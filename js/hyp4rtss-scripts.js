@@ -55,7 +55,7 @@ function hypss_reorder_images() {
 }
 
 // Remove Image.
-function hypss_remove_image(button, imageUrl) {
+function hypss_remove_image(button, imageIndex) {
     var conf = confirm("You are about to remove image from the slideshow!\n'Cancel' to stop or 'OK' to remove...");
     if (conf){
         jQuery.ajax({
@@ -63,7 +63,7 @@ function hypss_remove_image(button, imageUrl) {
             type: 'POST',
             data: {
                 action: 'hypss_remove_image',
-                image_url: imageUrl
+                image_index: imageIndex
             },
             success: function(response) {
                 if(response.success) {
