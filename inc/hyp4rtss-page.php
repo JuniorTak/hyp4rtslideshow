@@ -67,7 +67,7 @@ function hypslideshow_content() {
 			<?php foreach ( $images as $index => $image ) : ?>
 				<li class="ui-state-default">
 					<img src="<?php echo esc_url( $image ); ?>" alt="slideshow-image" width="100" height="100" />
-					<button class="button" onclick="hypss_remove_image(this, '<?php echo (int) $index; ?>');">Remove</button>
+					<button class="button" onclick="hypss_remove_image(this);" data-index="<?php echo (int) $index; ?>">Remove</button>
 				</li>
 			<?php endforeach; ?>
 			</ul>
