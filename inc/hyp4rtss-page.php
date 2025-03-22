@@ -60,8 +60,8 @@ function hypslideshow_content() {
 		if ( $images ) :
 			if ( count( $images ) > 1 ) :
 				?>
-				<span>Drag and drop images</span><br>
-				<button class="button" onclick="hypss_reorder_images();">Click to reorder</button>
+				<span class="hypss-reorder">Drag and drop images</span><br class="hypss-reorder">
+				<button class="button hypss-reorder" onclick="hypss_reorder_images();">Click to reorder</button>
 			<?php endif; ?>
 			<ul id="sortable">
 			<?php foreach ( $images as $index => $image ) : ?>

@@ -69,6 +69,18 @@ function hypss_remove_image(button, imageIndex) {
             },
             success: function(response) {
                 if(response.success) {
+                    let count_images = response.data.count_images;
+                    if(count_images === 1) {
+                        let elements = document.querySelectorAll('.hypss-reorder');
+                        elements.forEach(element => {
+                            element.style.display = 'none';
+                        });
+                    }
+                    else if(count_images === 0) {
+                        let hypss_span = document.createElement('span');
+                        hypss_span.innerText = 'No images found';
+                        document.querySelector('div.wrap').append(hypss_span);
+                    }
                     jQuery(button).parent().remove();
                 } else {
                     alert('Failed to remove image.');

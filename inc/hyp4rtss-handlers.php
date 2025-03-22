@@ -65,7 +65,7 @@ function hypss_handle_remove_image() {
 		$images = get_option( 'hypss_images' );
 		unset( $images[ $index ] );
 		update_option( 'hypss_images', $images );
-		wp_send_json_success();
+		wp_send_json_success( array( 'count_images' => count( $images ) ) );
 	} else {
 		wp_send_json_error( array( 'message' => 'Image not found.' ) );
 	}
