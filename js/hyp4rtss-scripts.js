@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 // Image uploader.
 jQuery(document).ready(function($){
     var customUploader;
