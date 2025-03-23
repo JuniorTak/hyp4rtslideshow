@@ -7,11 +7,11 @@
 
 /**
  * Plugin Name: Hyp Slideshow
- * Plugin URI: https://github.com/JuniorTak
+ * Plugin URI: https://github.com/JuniorTak/hyp4rtslideshow
  * Description: A plugin to generate a slideshow for users to add into their websites
  * Version: 1.0
  * Author: Hyppolite Takoua Foduop
- * Author URI: https://www.hyppolitetakouafoduop.online
+ * Author URI: https://hyppolitetakouafoduop.mystrikingly.com/
  * License: GPLv2 or later
  * Text Domain: hypslideshow
  */
