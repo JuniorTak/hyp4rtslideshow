@@ -13,7 +13,7 @@ add_action( 'admin_enqueue_scripts', 'hypslideshow_admin_enqueue' );
 function hypslideshow_admin_enqueue() {
 	global $pagenow;
 	// Get the current page.
-	$current_page = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
+	$current_page = wp_strip_all_tags( filter_input( INPUT_GET, 'page', FILTER_SANITIZE_SPECIAL_CHARS ) ?? '' );
 	// Check both current page base and slug.
 	if ( 'admin.php' === $pagenow && 'hypslideshow' === $current_page ) {
 		// Enqueue WordPress media scripts.
