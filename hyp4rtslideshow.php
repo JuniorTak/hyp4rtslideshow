@@ -20,11 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-require 'inc/hyp4rtss-activation.php';
-require 'inc/hyp4rtss-enqueue.php';
-require 'inc/hyp4rtss-handlers.php';
-require 'inc/hyp4rtss-page.php';
-require 'inc/hyp4rtss-shortcode.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/hyp4rtss-activation.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/hyp4rtss-enqueue.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/hyp4rtss-handlers.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/hyp4rtss-page.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/hyp4rtss-shortcode.php';
 
 // Hook for activation.
 register_activation_hook( __FILE__, 'hypslideshow_activate' );
