@@ -18,11 +18,10 @@ function hypss_handle_image_upload() {
 		sanitize_text_field( wp_unslash( $_POST['hypss_form_nonce_field'] ) ),
 		'hypss_form_nonce_action'
 	) ) {
-		add_settings_error(
-			'hypss_nonce_error',
-			esc_attr( 'nonce_not_verified' ),
-			__( '403 Unauthorized.', 'hypslideshow' ),
-			'error'
+		wp_die(
+			esc_html__( 'Security check failed.', 'hypslideshow' ),
+			esc_html__( 'Error', 'hypslideshow' ),
+			array( 'response' => 403 )
 		);
 	} elseif ( isset( $_POST['hypss_image'] ) && ! empty( $_POST['hypss_image'] ) ) {
 		$url = sanitize_url( wp_unslash( $_POST['hypss_image'] ) );
