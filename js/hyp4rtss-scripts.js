@@ -31,10 +31,14 @@ jQuery(document).ready(function($){
 function hypss_reorder_images() {
     // Convert ul > li > img tags into an array of img src URLs.
     var list = document.getElementById('sortable');
-    var listItems = list.querySelectorAll('li');
+    var listItemsToDelete = list.querySelectorAll('li:has(p)');
+    listItemsToDelete.forEach( (item) => {
+        item.remove();
+    });
+    var listItems = list.querySelectorAll('li:has(img)');
     var imagesArray = Array.from(listItems).map(function(li) {
         var img = li.querySelector('img');
-        var imgSrc = img ? img.src : null;
+        var imgSrc = img ? img.getAttribute('data-full-src') : null;
         return imgSrc;
     });
     
