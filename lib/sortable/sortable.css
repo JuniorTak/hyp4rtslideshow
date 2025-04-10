@@ -10,6 +10,7 @@
   padding: 1px;
   float: left;
   width: 100px;
+  height: 147px;
   text-align: center;
 }
 #sortable li > button.button {
