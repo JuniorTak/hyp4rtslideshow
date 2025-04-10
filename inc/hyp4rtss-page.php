@@ -5,7 +5,15 @@
  * @package HypSlideshow
  */
 
-// Create the settings menu page.
+/**
+ * Register your custom image size
+ */
+function hypss_register_image_size() {
+	add_image_size( 'hypss_thumb', 100, 100, true ); // true for hard crop - custom size width x height: 100 x 100.
+}
+add_action( 'after_setup_theme', 'hypss_register_image_size' );
+
+ // Create the settings menu page.
 add_action( 'admin_menu', 'hypslideshow_settings_menu' );
 /**
  * Create settings menu
@@ -66,7 +74,31 @@ function hypslideshow_content() {
 			<ul id="sortable">
 			<?php foreach ( $images as $index => $image ) : ?>
 				<li class="ui-state-default">
-					<img src="<?php echo esc_url( $image ); ?>" alt="slideshow-image" width="100" height="100" />
+					<?php
+					// Get the attachment ID from the image URL.
+					$attachment_id = attachment_url_to_postid( $image );
+					if ( $attachment_id ) {
+						// Get the image metadata.
+						$meta = wp_get_attachment_metadata( $attachment_id );
+						// Generate the custom size if it doesn't exist.
+						if ( empty( $meta['sizes']['hypss_thumb'] ) ) {
+							$meta = wp_generate_attachment_metadata( $attachment_id, get_attached_file( $attachment_id ) );
+							wp_update_attachment_metadata( $attachment_id, $meta );
+						}
+						// Display the image.
+						echo wp_get_attachment_image( 
+							$attachment_id,
+							'hypss_thumb', // custom size registered.
+							false,
+							array(
+								'alt' => 'slideshow-image',
+								'data-full-src' => esc_url( $image ), // Full image URL.
+							)
+						);
+					} else { // fallback if no attachment ID found.
+						echo '<p>Image is missing in your Media Library! Please Remove</p>';
+					}
+					?>
 					<button class="button" onclick="hypss_remove_image(this);" data-index="<?php echo (int) $index; ?>">Remove</button>
 				</li>
 			<?php endforeach; ?>
