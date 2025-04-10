@@ -15,27 +15,37 @@ function hypslideshow_func() {
 	ob_start();
 
 	$images = get_option( 'hypss_images' ) ?? null;
+	$displayed_images = array();
 	if ( $images ) {
 		?>
 		<section id="tiny" class="tinyslide">
 			<aside class="slides">
-			<?php foreach ( $images as $image ) : ?>
-				<figure>
-					<img src="<?php echo esc_url( $image ); ?>" alt="slideshow-image" />
-					<figcaption></figcaption>
-				</figure>
-			<?php endforeach; ?>
+			<?php
+			foreach ( $images as $image ) :
+				// Get the attachment ID from the image URL.
+				$attachment_id = attachment_url_to_postid( $image );
+				if ( $attachment_id ) :
+					$displayed_images[] = $attachment_id;
+					?>
+					<figure>
+						<?php echo wp_get_attachment_image( $attachment_id, 'full', false, array( 'alt' => 'slideshow image' ) ); ?>
+						<figcaption></figcaption>
+					</figure>
+					<?php
+				endif;
+			endforeach;
+			?>
 			</aside>
 		</section>
 		<?php
-		if ( count( $images ) > 1 ) {
+		if ( count( $displayed_images ) > 1 ) {
 			?>
 			<script type="text/javascript">
 				var tiny = jQuery('#tiny').tiny().data('api_tiny');
 			</script>
 			<?php
 		}
-	} elseif ( count( $images ) === 0 ) {
+	} elseif ( count( $displayed_images ) === 0 ) {
 		?>
 		<section id="tiny" class="tinyslide">
 			<aside class="slides">
