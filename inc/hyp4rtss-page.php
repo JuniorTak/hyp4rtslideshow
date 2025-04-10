@@ -48,8 +48,8 @@ function hypslideshow_content() {
 			<?php wp_nonce_field( 'hypss_form_nonce_action', 'hypss_form_nonce_field' ); // Nonce field. ?>
 			<?php settings_fields( 'hypslideshow-settings-group' ); // Display settings fields on the plugin settings page. ?>
 			<input type="text" name="hypss_image" id="hypss_image" required data-readonly style="pointer-events: none;">
-			<input type="button" id="hypss_select_btn" class="button" value="<?php esc_attr_e( 'Select Image' ); ?>">
-			<input type="submit" id="hypss_upload_btn" class="button button-primary" value="<?php esc_attr_e( 'Upload' ); ?>">
+			<input type="button" id="hypss_select_btn" class="button" value="<?php esc_attr_e( 'Select Image', 'hyp4rtslideshow' ); ?>">
+			<input type="submit" id="hypss_upload_btn" class="button button-primary" value="<?php esc_attr_e( 'Upload', 'hyp4rtslideshow' ); ?>">
 		</form>
 		<hr />
 		

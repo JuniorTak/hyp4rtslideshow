@@ -13,7 +13,7 @@
  * Author: Hyppolite Takoua Foduop
  * Author URI: https://hyppolitetakouafoduop.mystrikingly.com/
  * License: GPLv2 or later
- * Text Domain: hypslideshow
+ * Text Domain: hyp4rtslideshow
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -39,7 +39,7 @@ function hypslideshow_func() {
 		?>
 		<section id="tiny" class="tinyslide">
 			<aside class="slides">
-				<span><?php esc_html_e( 'No images', 'hypslideshow' ); ?></span>
+				<span><?php esc_html_e( 'No images', 'hyp4rtslideshow' ); ?></span>
 			</aside>
 		</section>
 		<?php

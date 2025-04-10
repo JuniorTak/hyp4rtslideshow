@@ -19,8 +19,8 @@ function hypss_handle_image_upload() {
 		'hypss_form_nonce_action'
 	) ) {
 		wp_die(
-			esc_html__( 'Security check failed.', 'hypslideshow' ),
-			esc_html__( 'Error', 'hypslideshow' ),
+			esc_html__( 'Security check failed.', 'hyp4rtslideshow' ),
+			esc_html__( 'Error', 'hyp4rtslideshow' ),
 			array( 'response' => 403 )
 		);
 	} elseif ( isset( $_POST['hypss_image'] ) && ! empty( $_POST['hypss_image'] ) ) {
@@ -29,7 +29,7 @@ function hypss_handle_image_upload() {
 		add_settings_error(
 			'hypss_settings_error',
 			esc_attr( 'settings_saved' ),
-			__( 'Image added.', 'hypslideshow' ),
+			__( 'Image added.', 'hyp4rtslideshow' ),
 			'success'
 		);
 	}
@@ -66,6 +66,6 @@ function hypss_handle_remove_image() {
 		update_option( 'hypss_images', array_values( $images ) );
 		wp_send_json_success( array( 'count_images' => count( $images ) ) );
 	} else {
-		wp_send_json_error( array( 'message' => __( 'Image not found.', 'hypslideshow' ) ) );
+		wp_send_json_error( array( 'message' => __( 'Image not found.', 'hyp4rtslideshow' ) ) );
 	}
 }
