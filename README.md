@@ -4,7 +4,7 @@ A repo for the development of a WordPress slideshow plugin, based on [rtCamp](ht
 
 ## Usage
 
-1. Download the [plugin .zip file](https://www.dropbox.com/scl/fi/nwuhu45rbmex8au78djzp/hyp4rtslideshow.1.0.0.zip?rlkey=7ao32x1z0ooiej8478h2h6a8x&st=flo5i2uk&dl=0)
+1. Download the [plugin .zip file](https://github.com/JuniorTak/hyp4rtslideshow/raw/main/hyp4rtslideshow.1.0.1.zip)
 2. In the admin-side of your WordPress site, install and activate the plugin
 3. Click the admin menu **HypSlideshow** to access the plugin settings page
 4. Add images to display in the slideshow, you can also remove and reorder images
